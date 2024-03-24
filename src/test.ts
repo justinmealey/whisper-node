@@ -1,19 +1,17 @@
-import {whisper} from './index';
+import { whisper } from "./index";
 (async function run() {
   try {
-
-
     const transcript = await whisper(
       // "/Users/Shared/twospeak_clip.wav",
       "/Users/Shared/mando.wav",
       {
         // modelPath: "/Users/Shared/custom-models/ggml-base.en.bin",
         modelName: "base",
-        whisperOptions: { 
-          language: 'auto',
+        whisperOptions: {
+          language: "auto",
           word_timestamps: false,
-          timestamp_size: 1
-        }
+          timestamp_size: 1,
+        },
       }
     );
 
@@ -23,9 +21,7 @@ import {whisper} from './index';
     // console.table(transcript)
 
     console.log(transcript.length, "rows.");
-
-    
   } catch (error) {
     console.log("ERROR", error);
   }
-})()
+})();
